@@ -15,7 +15,7 @@
 
 use std::convert::{From, Into};
 
-use super::char_data::BidiClass;
+use super::BidiClass;
 
 /// Embedding Level
 ///

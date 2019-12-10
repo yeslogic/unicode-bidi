@@ -11,7 +11,7 @@
 
 use std::cmp::max;
 
-use super::char_data::BidiClass;
+use super::BidiClass;
 use super::prepare::{IsolatingRunSequence, LevelRun, not_removed_by_x9, removed_by_x9};
 use super::level::Level;
 

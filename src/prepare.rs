@@ -14,7 +14,7 @@
 use std::cmp::max;
 use std::ops::Range;
 
-use super::char_data::BidiClass;
+use super::BidiClass;
 use super::level::Level;
 
 use BidiClass::*;

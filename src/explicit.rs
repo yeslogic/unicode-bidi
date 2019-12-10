@@ -11,7 +11,7 @@
 //!
 //! <http://www.unicode.org/reports/tr9/#Explicit_Levels_and_Directions>
 
-use super::char_data::{BidiClass, is_rtl};
+use super::{BidiClass, char_data::is_rtl};
 use super::level::Level;
 
 use BidiClass::*;
