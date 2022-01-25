@@ -22,7 +22,7 @@ use std::char;
 use BidiClass::*;
 
 /// The [Unicode version](http://www.unicode.org/versions/) of data
-pub const UNICODE_VERSION: (u64, u64, u64) = (12, 1, 0);
+pub const UNICODE_VERSION: (u64, u64, u64) = (14, 0, 0);
 
 /// Find the `BidiClass` of a single char.
 pub fn bidi_class(c: char) -> BidiClass {
@@ -75,10 +75,10 @@ mod tests {
         assert_eq!(bidi_class('\u{07C0}'), R);
         assert_eq!(bidi_class('\u{085F}'), R);
         assert_eq!(bidi_class('\u{0860}'), AL);
-        assert_eq!(bidi_class('\u{0870}'), R);
-        assert_eq!(bidi_class('\u{089F}'), R);
+        assert_eq!(bidi_class('\u{0870}'), AL);
+        assert_eq!(bidi_class('\u{089F}'), NSM);
         assert_eq!(bidi_class('\u{08A0}'), AL);
-        assert_eq!(bidi_class('\u{089F}'), R);
+        assert_eq!(bidi_class('\u{089F}'), NSM);
         assert_eq!(bidi_class('\u{08FF}'), NSM);
 
         // Default ET
@@ -89,9 +89,9 @@ mod tests {
         assert_eq!(bidi_class('\u{FB1D}'), R);
         assert_eq!(bidi_class('\u{FB4F}'), R);
         assert_eq!(bidi_class('\u{FB50}'), AL);
-        assert_eq!(bidi_class('\u{FDCF}'), AL);
+        assert_eq!(bidi_class('\u{FDCF}'), ON);
         assert_eq!(bidi_class('\u{FDF0}'), AL);
-        assert_eq!(bidi_class('\u{FDFF}'), AL);
+        assert_eq!(bidi_class('\u{FDFF}'), ON);
         assert_eq!(bidi_class('\u{FE70}'), AL);
         assert_eq!(bidi_class('\u{FEFE}'), AL);
         assert_eq!(bidi_class('\u{FEFF}'), BN);
