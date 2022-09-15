@@ -14,8 +14,8 @@
 use std::cmp::max;
 use std::ops::Range;
 
-use super::BidiClass;
 use super::level::Level;
+use super::BidiClass;
 
 use BidiClass::*;
 
@@ -24,7 +24,6 @@ use BidiClass::*;
 /// Represented as a range of byte indices.
 pub type LevelRun = Range<usize>;
 
-
 /// Output of `isolating_run_sequences` (steps X9-X10)
 #[derive(Debug, PartialEq)]
 pub struct IsolatingRunSequence {
@@ -32,7 +31,6 @@ pub struct IsolatingRunSequence {
     pub sos: BidiClass, // Start-of-sequence type.
     pub eos: BidiClass, // End-of-sequence type.
 }
-
 
 /// Compute the set of isolating run sequences.
 ///
@@ -106,9 +104,10 @@ pub fn isolating_run_sequences(
             }
 
             // Get the level of the last non-removed char before the runs.
-            let pred_level = match original_classes[..start_of_seq].iter().rposition(
-                not_removed_by_x9,
-            ) {
+            let pred_level = match original_classes[..start_of_seq]
+                .iter()
+                .rposition(not_removed_by_x9)
+            {
                 Some(idx) => levels[idx],
                 None => para_level,
             };
@@ -117,9 +116,10 @@ pub fn isolating_run_sequences(
             let succ_level = if matches!(original_classes[end_of_seq - 1], RLI | LRI | FSI) {
                 para_level
             } else {
-                match original_classes[end_of_seq..].iter().position(
-                    not_removed_by_x9,
-                ) {
+                match original_classes[end_of_seq..]
+                    .iter()
+                    .position(not_removed_by_x9)
+                {
                     Some(idx) => levels[end_of_seq + idx],
                     None => para_level,
                 }
@@ -358,7 +358,9 @@ mod tests {
 
     #[test]
     fn test_not_removed_by_x9() {
-        let non_x9_classes = &[L, R, AL, EN, ES, ET, AN, CS, NSM, B, S, WS, ON, LRI, RLI, FSI, PDI];
+        let non_x9_classes = &[
+            L, R, AL, EN, ES, ET, AN, CS, NSM, B, S, WS, ON, LRI, RLI, FSI, PDI,
+        ];
         for x in non_x9_classes {
             assert_eq!(not_removed_by_x9(&x), true);
         }

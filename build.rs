@@ -29,10 +29,7 @@ fn compile_table() -> CompiledTable {
     let mut blocks = Vec::new();
     let mut address_to_block_index = Vec::new();
 
-    let &(start, _, _) = BIDI_CLASS
-        .iter()
-        .min_by_key(|(start, _, _)| start)
-        .unwrap();
+    let &(start, _, _) = BIDI_CLASS.iter().min_by_key(|(start, _, _)| start).unwrap();
     let &(_, end, _) = BIDI_CLASS.iter().max_by_key(|(_, end, _)| end).unwrap();
     let last_code_point = end;
 
@@ -169,9 +166,7 @@ mod block {
         }
 
         pub fn reset(&mut self) {
-            self.data
-                .iter_mut()
-                .for_each(|val| *val = BidiClass::L);
+            self.data.iter_mut().for_each(|val| *val = BidiClass::L);
         }
 
         pub fn iter(&self) -> impl Iterator<Item = &BidiClass> {
