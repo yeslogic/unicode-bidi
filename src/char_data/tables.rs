@@ -33,6 +33,7 @@ pub enum BidiClass {
     WS,
 }
 
+#[allow(dead_code)]
 pub const BIDI_CLASS: &'static [(u32, u32, BidiClass)] = &[
     (0, 8, BidiClass::BN),
     (9, 9, BidiClass::S),

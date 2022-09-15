@@ -13,17 +13,18 @@ extern crate unicode_bidi;
 
 use unicode_bidi::{bidi_class, format_chars, level, BidiInfo, Level};
 
+#[allow(unused)]
 #[derive(Debug)]
 struct Fail {
-    pub line_num: usize,
-    pub input_base_level: Option<Level>,
-    pub input_classes: Vec<String>,
-    pub input_string: String,
-    pub exp_base_level: Option<Level>,
-    pub exp_levels: Vec<String>,
-    pub exp_ordering: Vec<String>,
-    pub actual_base_level: Option<Level>,
-    pub actual_levels: Vec<Level>,
+    line_num: usize,
+    input_base_level: Option<Level>,
+    input_classes: Vec<String>,
+    input_string: String,
+    exp_base_level: Option<Level>,
+    exp_levels: Vec<String>,
+    exp_ordering: Vec<String>,
+    actual_base_level: Option<Level>,
+    actual_levels: Vec<Level>,
     // TODO pub actual_ordering: Vec<String>,
 }
 
