@@ -12,7 +12,7 @@ yeslogic-unicode-bidi
     <img src="https://img.shields.io/crates/v/unicode-bidi.svg" alt="Version">
   </a>
   -->
-  <img src="https://img.shields.io/badge/unicode-14.0-informational" alt="Unicode Version">
+  <img src="https://img.shields.io/badge/unicode-15.0-informational" alt="Unicode Version">
   <a href="https://github.com/yeslogic/unicode-bidi/blob/master/LICENSE">
     <img src="https://img.shields.io/crates/l/unicode-bidi.svg" alt="License">
   </a>

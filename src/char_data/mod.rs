@@ -22,7 +22,7 @@ use std::char;
 use BidiClass::*;
 
 /// The [Unicode version](http://www.unicode.org/versions/) of data
-pub const UNICODE_VERSION: (u64, u64, u64) = (14, 0, 0);
+pub const UNICODE_VERSION: (u64, u64, u64) = (15, 0, 0);
 
 /// Find the `BidiClass` of a single char.
 pub fn bidi_class(c: char) -> BidiClass {
