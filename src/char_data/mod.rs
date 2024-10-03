@@ -25,7 +25,7 @@ use crate::BidiClass::*;
 use crate::BidiDataSource;
 
 /// The [Unicode version](http://www.unicode.org/versions/) of data
-pub const UNICODE_VERSION: (u64, u64, u64) = (15, 0, 0);
+pub const UNICODE_VERSION: (u64, u64, u64) = (16, 0, 0);
 
 /// Hardcoded Bidi data that ships with the unicode-bidi crate.
 ///
