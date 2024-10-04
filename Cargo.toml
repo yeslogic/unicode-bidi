@@ -33,10 +33,6 @@ name = "unicode_bidi"
 [dependencies]
 flame = { version = "0.2", optional = true }
 flamer = { version = "0.4", optional = true }
-serde = { version = ">=0.8, <2.0", default-features = false, optional = true, features = ["derive"] }
-
-[dev-dependencies]
-serde_test = "=1.0.175"
 
 [features]
 # Note: We don't actually use the `std` feature for anything other than making
@@ -47,7 +43,6 @@ std = []
 unstable = []  # travis-cargo needs it
 bench_it = []
 flame_it = ["flame", "flamer"]
-with_serde = ["serde"]  # DEPRECATED, please use `serde` feature, instead.
 
 [[test]]
 name = "conformance_tests"
