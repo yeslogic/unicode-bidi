@@ -30,7 +30,6 @@ use super::char_data::BidiClass;
 ///
 /// <http://www.unicode.org/reports/tr9/#BD2>
 #[derive(Copy, Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Level(u8);
 
 pub const LTR_LEVEL: Level = Level(0);
@@ -353,33 +352,6 @@ mod tests {
         assert_eq!(
             Level::vec(&[0, 1, 4, 125]),
             vec!["0".to_string(), "1".to_string(), "x".to_string(), "125".to_string()]
-        );
-    }
-}
-
-#[cfg(all(feature = "serde", test))]
-mod serde_tests {
-    use super::*;
-    use serde_test::{assert_tokens, Token};
-
-    #[test]
-    fn test_statics() {
-        assert_tokens(
-            &Level::ltr(),
-            &[Token::NewtypeStruct { name: "Level" }, Token::U8(0)],
-        );
-        assert_tokens(
-            &Level::rtl(),
-            &[Token::NewtypeStruct { name: "Level" }, Token::U8(1)],
-        );
-    }
-
-    #[test]
-    fn test_new() {
-        let level = Level::new(42).unwrap();
-        assert_tokens(
-            &level,
-            &[Token::NewtypeStruct { name: "Level" }, Token::U8(42)],
         );
     }
 }
